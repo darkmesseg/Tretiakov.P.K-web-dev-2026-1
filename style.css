@@ -29,7 +29,7 @@ header {
 }
 /*то что внутри загаловка*/
 .header-container {
-    max-width: 1400px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto !important;
     padding: 0 20px; /* Отступы по бокам, чтобы текст не лип к краям на маленьких экранах */
