@@ -23,11 +23,12 @@ body {
 /* Стили для блоков: header, nav, main, footer */
 header {
     background-color: #ff9800;
-    padding: 20px 40px;
+    padding: 20px 0;
     margin-bottom: 20px;
+    width: 100%;
 }
 /*то что внутри загаловка*/
-header-container {
+.header-container {
     max-width: 1400px;
     width: 100%;
     margin: 0 auto;
