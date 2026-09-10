@@ -25,7 +25,13 @@ header {
     background-color: #ff9800;
     padding: 20px 40px;
     margin-bottom: 20px;
-    max-width: 1200px;
+}
+/*то что внутри загаловка*/
+header-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px; /* Отступы по бокам, чтобы текст не лип к краям на маленьких экранах */
     display: flex;
     justify-content: space-between;
     align-items: center;
