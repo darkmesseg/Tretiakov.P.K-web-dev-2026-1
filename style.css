@@ -30,8 +30,7 @@ header {
 /*то что внутри загаловка*/
 .header-container {
     max-width: 1200px;
-    width: 100%;
-    margin: 0 auto !important;
+    margin: 0 auto;
     padding: 0 20px; /* Отступы по бокам, чтобы текст не лип к краям на маленьких экранах */
     display: flex;
     justify-content: space-between;
