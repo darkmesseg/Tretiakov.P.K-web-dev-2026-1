@@ -1,6 +1,12 @@
 /* Обязательное свойство box-sizing для всех элементов */
-* {
+html {
     box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
 }
 
 /* Оформление всей страницы и основного текста */
@@ -19,6 +25,7 @@ header {
     background-color: #ff9800;
     padding: 20px 40px;
     margin-bottom: 20px;
+    max-width: 1200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
