@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Доставка бизнес-ланчей в Москве | ОбедЭкспресс</title>
-    <!-- Подключаем шрифт Montserrat из Google Fonts -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Подключаем шрифт Montserrat из Google Fonts (исправлено) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Подключаем внешний файл стилей CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<div class="wrapper">
     <!-- Шапка сайта с заголовком и блоком навигации -->
     <header>
         <div class="header-container">
             <h1>ОбедЭкспресс</h1>
-            <nav>
-                <a href="#abaut">Главная</a>
-                <a href="#menu">Меню</a>
-                <a href="#contacts">Контакты</a> <!-- Якорная ссылка, ведущая к футеру -->
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link active">Главная</a>
+                <a href="lunch.html" class="nav-link">Собрать ланч</a>
+                <a href="#contacts" class="nav-link">Контакты</a>
             </nav>
         </div>
     </header>
@@ -28,7 +28,7 @@
     <main>
         <img class="about-img" src="lunch.png" alt="Разнообразные блюда для бизнес-ланча">
         <!-- Блок с информацией о компании -->
-        <section id="abaut">
+        <section id="about">
             <h2>О нашей службе доставки</h2>
             <p>Компания «ОбедЭкспресс» занимается доставкой горячих, вкусных и сбалансированных бизнес-ланчей в офисы и на дом по всей Москве. Мы помогаем экономить ваше время, доставляя блюда ресторанного качества точно к обеденному перерыву. Все обеды готовятся непосредственно перед отправкой из свежих продуктов.</p>
         </section>
@@ -43,10 +43,10 @@
             </ul>
         </section>
 
-        <!-- Блок с самыми популярными блюдами (минимум 5 блюд) -->
+        <!-- Блок с самыми популярными блюдами (исправлено) -->
         <section id="menu">
             <h2>Популярные блюда этой недели</h2>
-            <table>
+            <table class="menu-table">
                 <thead> 
                     <tr>
                         <th>Название блюда</th>
@@ -92,13 +92,13 @@
 
     </main>
 
-    <!-- Футер с контактными данными и ID для якорной ссылки -->
+    <!-- Футер с контактными данными -->
     <footer id="contacts">
         <h2>Контактная информация</h2>
         <p>Телефон службы заказа: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
         <p>Адрес главного офиса: г. Москва, ул. Тверская, д. 12, стр. 1</p>
         <p>Email: <a href="mailto:info@lunch-moscow.ru">info@lunch-moscow.ru</a></p>
     </footer>
-
+</div>
 </body>
 </html>

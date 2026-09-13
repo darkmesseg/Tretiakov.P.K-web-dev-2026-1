@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Собрать ланч | ОбедЭкспресс</title>
+    <!-- Подключаем шрифт Montserrat из Google Fonts -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Подключаем базовые стили и специфичные стили для конструктора -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lunch.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Шапка сайта с заголовком и блоком навигации -->
+        <header>
+            <div class="header-container">
+                <h1>ОбедЭкспресс</h1>
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">Главная</a>
+                    <a href="lunch.html" class="nav-link active">Собрать ланч</a>
+                    <a href="#contacts" class="nav-link">Контакты</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Блок с основным содержимым страницы -->
+        <main>
+            <!-- Блок с супами -->
+            <section>
+                <h2>Супы</h2>
+                <div class="dishes-grid">
+                    <div class="dish-card">
+                        <img src="borsh.jpg" alt="Борщ Украинский">
+                        <p class="dish-price">240 руб.</p>
+                        <p class="dish-title">Борщ Украинский с ароматными пампушками</p>
+                        <p class="dish-weight">350 г</p>
+                        <button class="dish-btn">Добавить</button>
+                    </div>
+                    <div class="dish-card">
+                        <img src="sum_grib.jpg" alt="Суп-пюре грибной">
+                        <p class="dish-price">210 руб.</p>
+                        <p class="dish-title">Грибной крем-суп с гренками</p>
+                        <p class="dish-weight">300 г</p>
+                        <button class="dish-btn">Добавить</button>
+                    </div>
+                    <div class="dish-card">
+                        <img src="sup_kur.jpg" alt="Куриный суп">
+                        <p class="dish-price">190 руб.</p>
+                        <p class="dish-title">Домашний куриный суп с лапшой</p>
+                        <p class="dish-weight">350 г</p>
+                        <button class="dish-btn">Добавить</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок с главными блюдами -->
+            <section>
+                <h2>Главные блюда</h2>
+                <div class="dishes-grid">
+                    <div class="dish-card">
+                        <img src="kiev_bulba.jpg" alt="Котлета по-киевски">
+                        <p class="dish-price">320 руб.</p>
+                        <p class="dish-title">Котлета по-киевски с нежным картофельным пюре</p>
+                        <p class="dish-weight">400 г</p>
+                        <button class="dish-btn">Добавить</button>
+                    </div>
+                    <div class="dish-card">
+                        <img src="tiahan.jpg" alt="Тяхан с овощами">
+                        <p class="dish-price">290 руб.</p>
+                        <p class="dish-title">Тяхан с сезонными овощами и сочной курицей</p>
+                        <p class="dish-weight">300 г</p>
+                        <button class="dish-btn">Добавить</button>
+                    </div>
+                    <div class="dish-card">
+                        <img src="gorbush.jpg" alt="Стейк из горбуши">
+                        <p class="dish-price">390 руб.</p>
+                        <p class="dish-title">Стейк из горбуши на пару с рисом жасмин</p>
+                        <p class="dish-weight">350 г</p>
+                        <button class="dish-btn">Добавить</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок с напитками -->
+            <section>
+                <h2>Напитки</h2>
+                <div class="dishes-grid">
+                    <div class="dish-card">
+                        <img src="mors.jpg" alt="Домашний морс">
+                        <p class="dish-price">110 руб.</p>
+                        <p class="dish-title">Домашний морс из спелой черной смородины</p>
+                        <p class="dish-weight">500 мл</p>
+                        <button class="dish-btn">Добавить</button>
+                    </div>
+                    <div class="dish-card">
+                        <img src="cumpot.jpg" alt="Компот">
+                        <p class="dish-price">100 руб.</p>
+                        <p class="dish-title">Компот из сухофруктов традиционный</p>
+                        <p class="dish-weight">500 мл</p>
+                        <button class="dish-btn">Добавить</button>
+                    </div>
+                    <div class="dish-card">
+                        <img src="tea.jpg" alt="Чай зеленый">
+                        <p class="dish-price">90 руб.</p>
+                        <p class="dish-title">Освежающий зеленый чай с лимоном и мятой</p>
+                        <p class="dish-weight">400 мл</p>
+                        <button class="dish-btn">Добавить</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Футер с контактными данными -->
+        <footer id="contacts">
+            <h2>Контактная информация</h2>
+            <p>Телефон службы заказа: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+            <p>Адрес главного офиса: г. Москва, ул. Тверская, д. 12, стр. 1</p>
+            <p>Email: <a href="mailto:info@lunch-moscow.ru">info@lunch-moscow.ru</a></p>
+        </footer>
+    </div>
+</body>
+</html>

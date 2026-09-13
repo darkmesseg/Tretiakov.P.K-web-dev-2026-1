@@ -1,4 +1,10 @@
 /* Обязательное свойство box-sizing для всех элементов */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 html {
     box-sizing: border-box;
 }
@@ -9,43 +15,75 @@ html {
     box-sizing: inherit;
 }
 
+/* Прижимание футера к низу страницы через flex-контейнер wrapper */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+main {
+    flex: 1 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
 /* Оформление всей страницы и основного текста */
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: #333333;
-    margin: 0;
-    padding: 0;
     line-height: 1.6;
 }
 
-/* Стили для блоков: header, nav, main, footer */
+/* Стили для блоков: header, nav, footer */
 header {
     background-color: #ff9800;
     padding: 20px 0;
-    margin-bottom: 20px;
     width: 100%;
 }
-/*то что внутри загаловка*/
+
 .header-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* Отступы по бокам, чтобы текст не лип к краям на маленьких экранах */
+    padding: 0 20px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+}   
 
-nav {
+/* Стилизация обновленного меню навигации (Flexbox) */
+.nav-menu {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
     padding: 5px;
     margin: 0;
 }
 
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 30px 20px;
+.nav-link {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #222222;
+}
+
+/* Выделение активной страницы */
+.nav-link.active {
+    color: tomato;
 }
 
 section {
@@ -73,6 +111,7 @@ p {
     color: #444444;
     margin-bottom: 15px;
 }
+
 /* Стили для изображений с центрированием */
 .about-img {
     display: block;    
@@ -82,24 +121,6 @@ p {
     margin: 20px auto;   
     border-radius: 8px;
 }
-
-/* Стили для ссылок в навигации */
-nav a {
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: #ffffff;
-    margin-left: 25px;
-    transition: color 0.3s ease;
-}
-
-/* Изменение цвета ссылок при наведении (:hover) */
-nav a:hover {
-    color: #222222;
-}
-
-
 
 /* Стили для списков */
 ul {
@@ -113,20 +134,21 @@ li {
 }
 
 /* Стили для таблиц */
-table {
+.menu-table {
     width: 100%;
-    border-collapse: collapse; /* Обязательное схлопывание границ */
+    border-collapse: collapse; 
     margin-top: 20px;
 }
 
-th, td {
-    border: 1px solid #cccccc; /* Обязательные границы */
-    padding: 12px 15px; /* Обязательный padding */
-    text-align: left; /* Обязательное выравнивание */
+.menu-table th, 
+.menu-table td {
+    border: 1px solid #cccccc; 
+    padding: 12px 15px; 
+    text-align: left; 
     font-size: 15px;
 }
 
-th {
+.menu-table th {
     background-color: #f5f5f5;
     font-weight: 600;
 }
@@ -136,7 +158,6 @@ footer {
     background-color: black;
     color: white;
     padding: 40px 20px;
-    margin-top: 60px;
     text-align: center;
 }
 
@@ -144,7 +165,6 @@ footer h2 {
     color: white;
 }
 
-/* Стили для ссылок в футере */
 footer a {
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
@@ -155,4 +175,56 @@ footer a {
 
 footer a:hover {
     color: #ffffff;
+}
+
+/* АДАПТИВНОСТЬ: ГЛАВНАЯ СТРАНИЦА */
+
+@media (max-width: 800px) {
+    .about-img {
+        max-width: 500px;
+    }
+    .nav-menu {
+        justify-content: space-between;
+        width: 100%;
+        max-width: 400px;
+    }
+    .menu-table th, 
+    .menu-table td {
+        font-size: 13px; /* Уменьшили шрифт на 2px */
+    }
+}
+
+@media (max-width: 600px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    h1 {
+        text-align: center;
+    }
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        width: auto;
+    }
+    .nav-link {
+        font-size: 20px; /* Увеличили шрифт на 4px (16 + 4) */
+    }
+    .about-img {
+        max-width: 100%;
+    }
+    .menu-table th, 
+    .menu-table td {
+        font-size: 11px; /* Уменьшили шрифт еще на 2px */
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    /* Чтобы таблица не ломала экран, добавляем ей внутреннюю прокрутку на критически малых дисплеях */
+    .menu-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 }

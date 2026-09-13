@@ -1,0 +1,101 @@
+/* Блок со всеми блюдами - CSS Grid */
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Карточка каждого блюда - Flexbox */
+.dish-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 35px;
+    cursor: pointer;
+    border: 2px solid transparent; /* Заготовка под ховер-рамку */
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Эффект hover для карточки */
+.dish-card:hover {
+    border-color: tomato;
+}
+
+/* Контекстное изменение кнопки внутри карточки при наведении на саму карточку */
+.dish-card:hover .dish-btn {
+    background-color: #ff9800;
+    color: #ffffff;
+}
+
+/* Изображение внутри карточки */
+.dish-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 35px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* Цена */
+.dish-price {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 5px 0;
+    color: #222222;
+}
+
+/* Название блюда */
+.dish-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 5px 0 10px 0;
+    line-height: 1.4;
+}
+
+/* Вес/объем */
+.dish-weight {
+    font-size: 14px;
+    color: #888888;
+    margin: 0 0 15px 0;
+    /* Выталкивает кнопку вниз, выравнивая все элементы строки по одной нижней линии */
+    margin-top: auto; 
+}
+
+/* Кнопка «Добавить» */
+.dish-btn {
+    background-color: #f1eee9;
+    color: #333333;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* АДАПТИВНОСТЬ: СТРАНИЦА «СОБРАТЬ ЛАНЧ» */
+
+@media (max-width: 800px) {
+    .dishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    section h2 {
+        text-align: center;
+    }
+    .dishes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .dish-card {
+        padding: 20px 25px; /* Слегка уменьшаем внутренние поля на мобильных */
+    }
+}
