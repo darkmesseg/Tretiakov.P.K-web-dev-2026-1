@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Собрать ланч | ОбедЭкспресс</title>
     <!-- Подключаем шрифт Montserrat из Google Fonts -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Подключаем базовые стили и специфичные стили для конструктора -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="lunch.css">
@@ -28,128 +28,42 @@
 
         <!-- Блок с основным содержимым страницы -->
         <main>
-            <!-- Блок с супами -->
+            <!-- Блок с супами: карточки блюд добавляются скриптом из dishes.js -->
             <section>
                 <h2>Супы</h2>
-                <div class="dishes-grid">
-                    <div class="dish-card">
-                        <img src="images/borsh.jpg" alt="Борщ Украинский">
-                        <p class="dish-price">240 руб.</p>
-                        <p class="dish-title">Борщ Украинский с ароматными пампушками</p>
-                        <p class="dish-weight">350 г</p>
-                        <button class="dish-btn">Добавить</button>
-                    </div>
-                    <div class="dish-card">
-                        <img src="images/sum_grib.jpg" alt="Суп-пюре грибной">
-                        <p class="dish-price">210 руб.</p>
-                        <p class="dish-title">Грибной крем-суп с гренками</p>
-                        <p class="dish-weight">300 г</p>
-                        <button class="dish-btn">Добавить</button>
-                    </div>
-                    <div class="dish-card">
-                        <img src="images/sup_kur.jpg" alt="Куриный суп">
-                        <p class="dish-price">190 руб.</p>
-                        <p class="dish-title">Домашний куриный суп с лапшой</p>
-                        <p class="dish-weight">350 г</p>
-                        <button class="dish-btn">Добавить</button>
-                    </div>
-                </div>
+                <div class="dishes-grid" data-category="soup"></div>
             </section>
 
             <!-- Блок с главными блюдами -->
             <section>
                 <h2>Главные блюда</h2>
-                <div class="dishes-grid">
-                    <div class="dish-card">
-                        <img src="images/kiev_bulba.jpg" alt="Котлета по-киевски">
-                        <p class="dish-price">320 руб.</p>
-                        <p class="dish-title">Котлета по-киевски с нежным картофельным пюре</p>
-                        <p class="dish-weight">400 г</p>
-                        <button class="dish-btn">Добавить</button>
-                    </div>
-                    <div class="dish-card">
-                        <img src="images/tiahan.jpg" alt="Тяхан с овощами">
-                        <p class="dish-price">290 руб.</p>
-                        <p class="dish-title">Тяхан с сезонными овощами и сочной курицей</p>
-                        <p class="dish-weight">300 г</p>
-                        <button class="dish-btn">Добавить</button>
-                    </div>
-                    <div class="dish-card">
-                        <img src="images/gorbush.jpg" alt="Стейк из горбуши">
-                        <p class="dish-price">390 руб.</p>
-                        <p class="dish-title">Стейк из горбуши на пару с рисом жасмин</p>
-                        <p class="dish-weight">350 г</p>
-                        <button class="dish-btn">Добавить</button>
-                    </div>
-                </div>
+                <div class="dishes-grid" data-category="main"></div>
             </section>
 
             <!-- Блок с напитками -->
             <section>
                 <h2>Напитки</h2>
-                <div class="dishes-grid">
-                    <div class="dish-card">
-                        <img src="images/mors.jpg" alt="Домашний морс">
-                        <p class="dish-price">110 руб.</p>
-                        <p class="dish-title">Домашний морс из спелой черной смородины</p>
-                        <p class="dish-weight">500 мл</p>
-                        <button class="dish-btn">Добавить</button>
-                    </div>
-                    <div class="dish-card">
-                        <img src="images/cumpot.jpg" alt="Компот">
-                        <p class="dish-price">100 руб.</p>
-                        <p class="dish-title">Компот из сухофруктов традиционный</p>
-                        <p class="dish-weight">500 мл</p>
-                        <button class="dish-btn">Добавить</button>
-                    </div>
-                    <div class="dish-card">
-                        <img src="images/tea.jpg" alt="Чай зеленый">
-                        <p class="dish-price">90 руб.</p>
-                        <p class="dish-title">Освежающий зеленый чай с лимоном и мятой</p>
-                        <p class="dish-weight">400 мл</p>
-                        <button class="dish-btn">Добавить</button>
-                    </div>
-                </div>
+                <div class="dishes-grid" data-category="drink"></div>
             </section>
             <!-- Блок формы «Сделать заказ» -->
             <section class="order-section">
                 <h2 class="order-main-title">Сделать заказ</h2>
                 
-                <form action="https://httpbin.org/post" method="POST" class="order-form">
-                    
+                <form action="https://httpbin.org/post" method="POST" class="order-form" id="order-form">
+
                     <!-- Блок с заказом клиента (Левая колонка) -->
                     <div class="form-column">
                         <h3>Ваш заказ</h3>
-                        
-                        <div class="form-group">
-                            <label for="select-soup">Суп</label>
-                            <select id="select-soup" name="soup" required>
-                                <option value="">-- Выберите суп --</option>
-                                <option value="borsch">Борщ Украинский с пампушками</option>
-                                <option value="mushroom">Грибной крем-суп с гренками</option>
-                                <option value="chicken">Домашний куриный суп с лапшой</option>
-                            </select>
+
+                        <!-- Выбранные блюда и стоимость заказа выводятся скриптом -->
+                        <div class="order-summary" id="order-summary">
+                            <p class="order-nothing">Ничего не выбрано</p>
                         </div>
 
-                        <div class="form-group">
-                            <label for="select-main">Главное блюдо</label>
-                            <select id="select-main" name="main_dish" required>
-                                <option value="">-- Выберите главное блюдо --</option>
-                                <option value="kiev_cutlet">Котлета по-киевски с пюре</option>
-                                <option value="tyahan">Тяхан с овощами и курицей</option>
-                                <option value="salmon_steak">Стейк из горбуши с рисом</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="select-drink">Напиток</label>
-                            <select id="select-drink" name="drink" required>
-                                <option value="">-- Выберите напиток --</option>
-                                <option value="currant_mors">Домашний морс из черной смородины</option>
-                                <option value="compote">Компот из сухофруктов традиционный</option>
-                                <option value="green_tea">Освежающий зеленый чай с лимоном</option>
-                            </select>
-                        </div>
+                        <!-- Скрытые поля: при отправке формы передают выбранные блюда (keyword) на сервер -->
+                        <input type="hidden" name="soup" value="">
+                        <input type="hidden" name="main_dish" value="">
+                        <input type="hidden" name="drink" value="">
 
                         <div class="form-group">
                             <label for="order-comment">Комментарии к заказу</label>
@@ -228,5 +142,9 @@
             <p>Email: <a href="mailto:info@lunch-moscow.ru">info@lunch-moscow.ru</a></p>
         </footer>
     </div>
+
+    <!-- Массив с блюдами и скрипт отображения/заказа (Лабораторная работа 4) -->
+    <script src="dishes.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

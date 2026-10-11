@@ -1,3 +1,8 @@
+:root { 
+    --main-color: #333333; 
+    --guidance-color: #ff9800;
+    font-size: 62.5%; 
+}
 /* Обязательное свойство box-sizing для всех элементов */
 html, body {
     height: 100%;
@@ -37,23 +42,23 @@ footer {
 /* Оформление всей страницы и основного текста */
 body {
     font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 400;
-    color: #333333;
+    color: var(--main-color);
     line-height: 1.6;
 }
 
 /* Стили для блоков: header, nav, footer */
 header {
-    background-color: #ff9800;
-    padding: 20px 0;
+    background-color: var(--guidance-color);
+    padding: 2rem 0;
     width: 100%;
 }
 
 .header-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; 
+    padding: 0 2rem; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,23 +67,23 @@ header {
 /* Стилизация обновленного меню навигации (Flexbox) */
 .nav-menu {
     display: flex;
-    gap: 15px;
+    gap: 1.5rem;
     flex-wrap: wrap;
-    padding: 5px;
+    padding: 0.5rem;
     margin: 0;
 }
 
 .nav-link {
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 600;
     color: #ffffff;
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #222222;
+    color: var(--main-color);
 }
 
 /* Выделение активной страницы */
@@ -87,29 +92,29 @@ header {
 }
 
 section {
-    margin-bottom: 50px;
+    margin-bottom: 5rem;
 }
 
 /* Стили для заголовков */
 h1 {
-    font-size: 28px;
+    font-size: 2.8rem;
     font-weight: 700;
     color: #ffffff;
     margin: 0;
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 2.4rem;
     font-weight: 600;
-    color: #222222;
+    color: var(--main-color);
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 p {
-    font-size: 16px;
+    font-size: 1.6rem;
     color: #444444;
-    margin-bottom: 15px;
+    margin-bottom: 1.5rem;
 }
 
 /* Стили для изображений с центрированием */
@@ -155,7 +160,7 @@ li {
 
 /* Стили для футера (строго черный фон и белый текст) */
 footer {
-    background-color: black;
+    background-color: var(--main-color);
     color: white;
     padding: 40px 20px;
     text-align: center;
@@ -169,7 +174,7 @@ footer a {
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    color: #ff9800;
+    color: var(--guidance-color);
     transition: color 0.3s ease;
 }
 

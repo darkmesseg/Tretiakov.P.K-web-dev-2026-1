@@ -24,6 +24,11 @@
     border-color: tomato;
 }
 
+/* Выделение выбранной карточки (активное состояние из JS) */
+.dish-card.selected {
+    border-color: tomato;
+}
+
 /* Контекстное изменение кнопки внутри карточки при наведении на саму карточку */
 .dish-card:hover .dish-btn {
     background-color: #ff9800;
