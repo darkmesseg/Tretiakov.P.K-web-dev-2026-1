@@ -323,3 +323,38 @@
         justify-content: center; /* Центрируем кнопки на смартфонах */
     }
 }
+/* ==========================================================================
+   ФИЛЬТРЫ ДЛЯ КАТЕГОРИЙ
+   ========================================================================== */
+
+.active-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background-color: #f1eee9;
+    color: #333333;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #dddddd;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #ff9800;
+    color: #ffffff;
+    border-color: #ff9800;
+}
+
+.filter-btn.active {
+    background-color: #ff9800;
+    color: #ffffff;
+    border-color: #ff9800;
+}

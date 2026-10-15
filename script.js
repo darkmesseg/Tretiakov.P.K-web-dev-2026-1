@@ -1,36 +1,16 @@
+// categories и dishes уже объявлены в dishes.js
 
-const categories = [
-    {
-        key: "soup",
-        title: "Суп",
-        emptyMessage: "Блюдо не выбрано",
-        formField: "soup"
-    },
-    {
-        key: "main",
-        title: "Главное блюдо",
-        emptyMessage: "Блюдо не выбрано",
-        formField: "main_dish"
-    },
-    {
-        key: "drink",
-        title: "Напиток",
-        emptyMessage: "Напиток не выбран",
-        formField: "drink"
-    }
-];
-
-// Выбранные блюда: { "soup": блюдо, "main": блюдо, "drink": блюдо }
+// Выбранные блюда: { "soup": блюдо, "main": блюдо, ... }
 let selectedDishes = {};
 
+/* ==================== ОТОБРАЖЕНИЕ БЛЮД ==================== */
 
-/* ==================== ОТОБРАЖЕНИЕ БЛЮД НА СТРАНИЦЕ ==================== */
-
-// Создание карточки одного блюда
 function createDishCard(dish) {
     const card = document.createElement("div");
     card.className = "dish-card";
-    card.dataset.dish = dish.keyword; // data-атрибут с названием блюда на латинице
+    card.dataset.dish = dish.keyword;
+    card.dataset.kind = dish.kind;
+    card.dataset.category = dish.category;
 
     const image = document.createElement("img");
     image.src = dish.image;
@@ -58,18 +38,13 @@ function createDishCard(dish) {
     return card;
 }
 
-// Перебор массива блюд и добавление карточек в нужные секции
 function renderDishes() {
     categories.forEach((category) => {
-        // Секция каждой категории находится по data-атрибуту сетки
         const grid = document.querySelector(
             '.dishes-grid[data-category="' + category.key + '"]'
         );
-        if (!grid) {
-            return;
-        }
+        if (!grid) return;
 
-        // Блюда категории сортируются в алфавитном порядке перед выводом
         const categoryDishes = dishes
             .filter((dish) => dish.category === category.key)
             .sort((a, b) => a.name.localeCompare(b.name, "ru"));
@@ -80,17 +55,12 @@ function renderDishes() {
     });
 }
 
+/* ==================== ВЫБОР БЛЮД ==================== */
 
-/* ==================== ВЫБОР БЛЮД И БЛОК «ВАШ ЗАКАЗ» ==================== */
-
-// Поиск блюда в массиве по keyword из data-атрибута карточки
 function selectDish(keyword) {
     const dish = dishes.find((d) => d.keyword === keyword);
-    if (!dish) {
-        return;
-    }
+    if (!dish) return;
 
-    // Блюдо той же категории заменяет ранее выбранное
     selectedDishes[dish.category] = dish;
 
     updateCardSelection();
@@ -98,10 +68,11 @@ function selectDish(keyword) {
     updateHiddenInputs();
 }
 
-// Выделение выбранной карточки рамкой (как при наведении курсора)
 function updateCardSelection() {
     document.querySelectorAll(".dish-card").forEach((card) => {
         const dish = dishes.find((d) => d.keyword === card.dataset.dish);
+        if (!dish) return;
+
         const selectedDish = selectedDishes[dish.category];
 
         if (selectedDish && selectedDish.keyword === dish.keyword) {
@@ -112,12 +83,12 @@ function updateCardSelection() {
     });
 }
 
-// Обновление блока «Ваш заказ»: категории, выбранные блюда и итоговая стоимость
 function updateOrderSummary() {
     const summary = document.getElementById("order-summary");
+    if (!summary) return;
+
     summary.innerHTML = "";
 
-    // Пока ничего не выбрано — только сообщение, названия категорий скрыты
     if (Object.keys(selectedDishes).length === 0) {
         const message = document.createElement("p");
         message.className = "order-nothing";
@@ -146,49 +117,101 @@ function updateOrderSummary() {
             value.textContent = category.emptyMessage;
         }
 
-        summary.appendChild(value);x
+        summary.appendChild(value);
     });
 
-    // Блок с итоговой стоимостью заказа
     const total = document.createElement("p");
     total.className = "order-total";
     total.textContent = "Стоимость заказа: " + totalPrice + " руб.";
     summary.appendChild(total);
 }
 
-// Запись keyword выбранных блюд в скрытые поля формы для отправки на сервер
 function updateHiddenInputs() {
     categories.forEach((category) => {
         const input = document.querySelector(
             'input[type="hidden"][name="' + category.formField + '"]'
         );
+        if (!input) return;
+
         const dish = selectedDishes[category.key];
         input.value = dish ? dish.keyword : "";
     });
 }
 
-//сброс
 function handleFormReset() {
     selectedDishes = {};
     updateCardSelection();
     updateOrderSummary();
     updateHiddenInputs();
+
+    // Сброс фильтров
+    document.querySelectorAll(".active-filters .filter-btn.active").forEach((btn) => {
+        btn.classList.remove("active");
+    });
+    document.querySelectorAll(".dishes-grid").forEach((grid) => {
+        grid.querySelectorAll(".dish-card").forEach((card) => {
+            card.style.display = "";
+        });
+    });
+}
+
+/* ==================== ФИЛЬТРАЦИЯ ==================== */
+
+function applyFilter(categoryKey) {
+    const container = document.querySelector(
+        '.active-filters[data-category="' + categoryKey + '"]'
+    );
+    const grid = document.querySelector(
+        '.dishes-grid[data-category="' + categoryKey + '"]'
+    );
+    if (!grid) return;
+
+    const activeBtn = container ? container.querySelector(".filter-btn.active") : null;
+    const kind = activeBtn ? activeBtn.dataset.kind : null;
+
+    grid.querySelectorAll(".dish-card").forEach((card) => {
+        if (!kind || card.dataset.kind === kind) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+function setupFilters() {
+    document.querySelectorAll(".active-filters").forEach((container) => {
+        const categoryKey = container.dataset.category;
+        const buttons = container.querySelectorAll(".filter-btn");
+
+        buttons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const isActive = btn.classList.contains("active");
+
+                // Убираем active у всех кнопок этой категории
+                buttons.forEach((b) => b.classList.remove("active"));
+
+                // Если кнопка не была активна — делаем её активной
+                if (!isActive) {
+                    btn.classList.add("active");
+                }
+
+                applyFilter(categoryKey);
+            });
+        });
+    });
 }
 
 /* ==================== ИНИЦИАЛИЗАЦИЯ ==================== */
 
-//инициализация приложения
 function initApp() {
     renderDishes();
+    setupFilters();
     updateOrderSummary();
 
     const form = document.getElementById("order-form");
     if (form) {
-        // Передаем имя функции handleFormReset
         form.addEventListener("reset", handleFormReset);
     }
 }
 
-//Передаем имя функции initApp вместо   
 document.addEventListener("DOMContentLoaded", initApp);
-

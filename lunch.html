@@ -31,20 +31,57 @@
             <!-- Блок с супами: карточки блюд добавляются скриптом из dishes.js -->
             <section>
                 <h2>Супы</h2>
+                <div class="active-filters" data-category="soup">
+                    <button type="button" class="filter-btn" data-kind="fish">Рыбный</button>
+                    <button type="button" class="filter-btn" data-kind="meat">Мясной</button>
+                    <button type="button" class="filter-btn" data-kind="veg">Вегетарианский</button>
+                 </div>
                 <div class="dishes-grid" data-category="soup"></div>
             </section>
 
             <!-- Блок с главными блюдами -->
             <section>
                 <h2>Главные блюда</h2>
+                <div class="active-filters" data-category="main">
+                    <button type="button" class="filter-btn" data-kind="fish">Рыбное</button>
+                    <button type="button" class="filter-btn" data-kind="meat">Мясное</button>
+                    <button type="button" class="filter-btn" data-kind="veg">Вегетарианское</button>
+                </div>
                 <div class="dishes-grid" data-category="main"></div>
+            </section>
+
+            <!-- Раздел "Выберите салат или стартер" -->
+            <section>
+                <h2>Выберите салат или стартер</h2>
+                <div class="active-filters" data-category="salad">
+                    <button type="button" class="filter-btn" data-kind="fish">Рыбный</button>
+                    <button type="button" class="filter-btn" data-kind="meat">Мясной</button>
+                    <button type="button" class="filter-btn" data-kind="veg">Вегетарианский</button>
+                </div>
+                <div class="dishes-grid" data-category="salad"></div>
             </section>
 
             <!-- Блок с напитками -->
             <section>
                 <h2>Напитки</h2>
+                <div class="active-filters" data-category="drink">
+                    <button type="button" class="filter-btn" data-kind="cold">Холодный</button>
+                    <button type="button" class="filter-btn" data-kind="hot">Горячий</button>
+                </div>
                 <div class="dishes-grid" data-category="drink"></div>
             </section>
+
+            <!-- Раздел "Выберите десерт" -->
+            <section>
+                <h2>Выберите десерт</h2>
+                <div class="active-filters" data-category="dessert">
+                    <button type="button" class="filter-btn" data-kind="small">Маленькая порция</button>
+                    <button type="button" class="filter-btn" data-kind="medium">Средняя порция</button>
+                    <button type="button" class="filter-btn" data-kind="large">Большая порция</button>
+                </div>
+                <div class="dishes-grid" data-category="dessert"></div>
+            </section>
+
             <!-- Блок формы «Сделать заказ» -->
             <section class="order-section">
                 <h2 class="order-main-title">Сделать заказ</h2>
@@ -63,8 +100,9 @@
                         <!-- Скрытые поля: при отправке формы передают выбранные блюда (keyword) на сервер -->
                         <input type="hidden" name="soup" value="">
                         <input type="hidden" name="main_dish" value="">
+                        <input type="hidden" name="salad" value="">
                         <input type="hidden" name="drink" value="">
-
+                        <input type="hidden" name="dessert" value="">
                         <div class="form-group">
                             <label for="order-comment">Комментарии к заказу</label>
                             <textarea id="order-comment" name="comment" rows="6"></textarea>
