@@ -144,17 +144,22 @@ function handleFormReset() {
     updateOrderSummary();
     updateHiddenInputs();
 
+    const notification = document.querySelector(".notification-overlay");
+    if (notification) {
+        notification.remove();
+    }
+
     // Сброс фильтров
     document.querySelectorAll(".active-filters .filter-btn.active").forEach((btn) => {
         btn.classList.remove("active");
     });
+
     document.querySelectorAll(".dishes-grid").forEach((grid) => {
         grid.querySelectorAll(".dish-card").forEach((card) => {
             card.style.display = "";
         });
     });
 }
-
 /* ==================== ФИЛЬТРАЦИЯ ==================== */
 
 function applyFilter(categoryKey) {
@@ -201,6 +206,119 @@ function setupFilters() {
     });
 }
 
+/* ==================== ПРОВЕРКА ЛАНЧА И УВЕДОМЛЕНИЯ ==================== */
+
+// Доступные варианты ланча (десерт может быть добавлен к любому)
+const LUNCH_COMBOS = [
+    { soup: true, main: true, salad: true, drink: true },
+    { soup: true, main: true, drink: true },
+    { soup: true, salad: true, drink: true },
+    { main: true, salad: true, drink: true },
+    { main: true, drink: true }
+];
+
+function getNonDessertSelectedKeys() {
+    return ["soup", "main", "salad", "drink"].filter(function (key) {
+        return selectedDishes[key];
+    });
+}
+
+function isLunchValid() {
+    const selectedKeys = getNonDessertSelectedKeys();
+
+    return LUNCH_COMBOS.some(function (combo) {
+        const comboKeys = Object.keys(combo);
+
+        if (comboKeys.length !== selectedKeys.length) {
+            return false;
+        }
+
+        return comboKeys.every(function (key) {
+            return selectedDishes[key];
+        });
+    });
+}
+
+function getNotificationMessage() {
+    const totalSelected = Object.keys(selectedDishes).length;
+
+    if (totalSelected === 0) {
+        return "Ничего не выбрано. Выберите блюда для заказа";
+    }
+
+    if (isLunchValid()) {
+        return null;
+    }
+
+    const hasSoup = !!selectedDishes.soup;
+    const hasMain = !!selectedDishes.main;
+    const hasSalad = !!selectedDishes.salad;
+    const hasDrink = !!selectedDishes.drink;
+    const hasDessert = !!selectedDishes.dessert;
+
+    if (hasSoup && !hasMain && !hasSalad) {
+        return "Выберите главное блюдо/салат/стартер";
+    }
+
+    if (hasSalad && !hasSoup && !hasMain) {
+        return "Выберите суп или главное блюдо";
+    }
+
+    if ((hasDrink || hasDessert) && !hasMain && !hasSoup && !hasSalad) {
+        return "Выберите главное блюдо";
+    }
+
+    if (!hasDrink) {
+        return "Выберите напиток";
+    }
+
+    if (!hasMain) {
+        return "Выберите главное блюдо";
+    }
+
+    return "Ничего не выбрано. Выберите блюда для заказа";
+}
+
+function showNotification(message) {
+    const oldNotification = document.querySelector(".notification-overlay");
+    if (oldNotification) {
+        oldNotification.remove();
+    }
+
+    const overlay = document.createElement("div");
+    overlay.className = "notification-overlay";
+
+    const text = document.createElement("p");
+    text.className = "notification-text";
+    text.textContent = message;
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "notification-btn";
+    button.textContent = "Окей";
+
+    button.addEventListener("click", function () {
+        overlay.remove();
+    });
+
+    overlay.append(text, button);
+    document.body.appendChild(overlay);
+}
+
+function handleOrderSubmit(event) {
+    const oldNotification = document.querySelector(".notification-overlay");
+    if (oldNotification) {
+        oldNotification.remove();
+    }
+
+    const message = getNotificationMessage();
+
+    if (message) {
+        event.preventDefault();
+        showNotification(message);
+    }
+}
+
 /* ==================== ИНИЦИАЛИЗАЦИЯ ==================== */
 
 function initApp() {
@@ -211,7 +329,7 @@ function initApp() {
     const form = document.getElementById("order-form");
     if (form) {
         form.addEventListener("reset", handleFormReset);
+        form.addEventListener("submit", handleOrderSubmit);
     }
 }
-
 document.addEventListener("DOMContentLoaded", initApp);
