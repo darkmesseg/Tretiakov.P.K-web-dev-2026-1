@@ -1,7 +1,30 @@
-// categories и dishes уже объявлены в dishes.js
+// ===== LAB7: массив блюд теперь пустой и заполняется из API =====
+let dishes = [];
 
 // Выбранные блюда: { "soup": блюдо, "main": блюдо, ... }
 let selectedDishes = {};
+
+/* ==================== LAB7: ЗАГРУЗКА ДАННЫХ С API ==================== */
+
+// ===== LAB7: новая функция loadDishes() =====
+async function loadDishes() {
+    const API_URL = "https://edu.std-900.ist.mospolytech.ru/labs/api/dishes";
+
+    try {
+        const response = await fetch(API_URL);
+
+        if (!response.ok) {
+            throw new Error(`Ошибка HTTP: ${response.status}`);
+        }
+
+        const data = await response.json();
+        dishes = data; // сохраняем полученные с сервера блюда в глобальный массив
+        return data;
+    } catch (error) {
+        console.error("Не удалось загрузить блюда:", error);
+        return [];
+    }
+}
 
 /* ==================== ОТОБРАЖЕНИЕ БЛЮД ==================== */
 
@@ -160,6 +183,7 @@ function handleFormReset() {
         });
     });
 }
+
 /* ==================== ФИЛЬТРАЦИЯ ==================== */
 
 function applyFilter(categoryKey) {
@@ -321,15 +345,22 @@ function handleOrderSubmit(event) {
 
 /* ==================== ИНИЦИАЛИЗАЦИЯ ==================== */
 
-function initApp() {
+// ===== LAB7: initApp стал асинхронным и сначала ждёт загрузки блюд =====
+async function initApp() {
+    // 1. Загружаем блюда с API
+    await loadDishes();
+
+    // 2. После загрузки — отрисовываем карточки, настраиваем фильтры и сводку
     renderDishes();
     setupFilters();
     updateOrderSummary();
 
+    // 3. Навешиваем обработчики на форму
     const form = document.getElementById("order-form");
     if (form) {
         form.addEventListener("reset", handleFormReset);
         form.addEventListener("submit", handleOrderSubmit);
     }
 }
+
 document.addEventListener("DOMContentLoaded", initApp);
