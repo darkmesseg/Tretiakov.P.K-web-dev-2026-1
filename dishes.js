@@ -9,9 +9,9 @@
 
 // Расширенный список категорий
 const categories = [
-    { key: "soup", title: "Суп", emptyMessage: "Блюдо не выбрано", formField: "soup" },
-    { key: "main", title: "Главное блюдо", emptyMessage: "Блюдо не выбрано", formField: "main_dish" },
-    { key: "salad", title: "Салат или стартер", emptyMessage: "Салат не выбран", formField: "salad" },
-    { key: "drink", title: "Напиток", emptyMessage: "Напиток не выбран", formField: "drink" },
-    { key: "dessert", title: "Десерт", emptyMessage: "Десерт не выбран", formField: "dessert" }
+    { key: "soup",            title: "Суп",               emptyMessage: "Блюдо не выбрано"},
+    { key: "main_course",     title: "Главное блюдо",     emptyMessage: "Блюдо не выбрано"},
+    { key: "salads_starters", title: "Салат или стартер", emptyMessage: "Салат не выбран"},
+    { key: "beverage",        title: "Напиток",           emptyMessage: "Напиток не выбран"},
+    { key: "dessert",         title: "Десерт",            emptyMessage: "Десерт не выбран"}
 ];

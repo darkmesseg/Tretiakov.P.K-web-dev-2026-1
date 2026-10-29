@@ -481,6 +481,123 @@
     color: #ffffff;
     border-color: #ff9800;
 }
+/* ==========================================================================
+   STICKY-ПАНЕЛЬ «ПЕРЕЙТИ К ОФОРМЛЕНИЮ»
+   ========================================================================== */
+.order-panel {
+    position: sticky;
+    bottom: 20px;
+    margin: 40px auto 20px auto;
+    max-width: 800px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 20px 30px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.order-panel.hidden { display: none; }
+
+.order-panel-total {
+    font-size: 16px;
+    font-weight: 600;
+    color: #222222;
+}
+
+.order-panel-total strong {
+    font-size: 20px;
+    color: #ff9800;
+}
+
+.order-panel-link {
+    background-color: #ff9800;
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.order-panel-link:hover { background-color: #e68a00; }
+
+.order-panel-link.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: default;
+}
+
+@media (max-width: 600px) {
+    .order-panel {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px;
+    }
+    .order-panel-link { width: 100%; text-align: center; }
+}
+
+/* ==========================================================================
+   БЛОК «СОСТАВ ЗАКАЗА» (для checkout.html)
+   ========================================================================== */
+.order-summary { margin-bottom: 20px; }
+
+.order-summary .order-category {
+    font-weight: 600;
+    font-size: 14px;
+    color: #222222;
+    margin: 12px 0 4px 0;
+}
+
+.order-summary .order-dish {
+    font-size: 14px;
+    color: #333333;
+    margin: 0;
+}
+
+.order-summary .order-empty {
+    font-size: 14px;
+    color: #999999;
+    font-style: italic;
+    margin: 0;
+}
+
+.order-summary .order-total {
+    font-weight: 700;
+    font-size: 18px;
+    color: #ff9800;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eeeeee;
+}
+
+.order-summary .order-nothing {
+    color: #999999;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   СТИЛИ ДЛЯ БЛОКА «СОСТАВ ЗАКАЗА» НА CHECKOUT
+   ========================================================================== */
+#order-empty {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 16px;
+    color: #666666;
+}
+
+#order-empty a {
+    color: #ff9800;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#order-empty a:hover { text-decoration: underline; }
 
 /* Адаптивность для блока вариантов */
 @media (max-width: 800px) {
