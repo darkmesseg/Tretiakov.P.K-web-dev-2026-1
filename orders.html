@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои заказы | ОбедЭкспресс</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lunch.css">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="header-container">
+            <h1>ОбедЭкспресс</h1>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="lunch.html" class="nav-link">Собрать ланч</a>
+                <a href="checkout.html" class="nav-link">Оформить заказ</a>
+                <a href="orders.html" class="nav-link active">Заказы</a>
+                <a href="#contacts" class="nav-link">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Мои заказы</h2>
+            <div id="orders-list" class="orders-list"></div>
+            <p id="orders-empty" style="display:none;">У вас пока нет заказов.</p>
+        </section>
+    </main>
+
+    <footer id="contacts">
+        <h2>Контактная информация</h2>
+        <p>Телефон службы заказа: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+        <p>Адрес главного офиса: г. Москва, ул. Тверская, д. 12, стр. 1</p>
+        <p>Email: <a href="mailto:info@lunch-moscow.ru">info@lunch-moscow.ru</a></p>
+    </footer>
+</div>
+
+<!-- Универсальное модальное окно -->
+<div id="modal-overlay" class="modal-overlay" style="display:none;">
+    <div class="modal-content" id="modal-content"></div>
+</div>
+
+<script src="dishes.js"></script>
+<script src="common.js"></script>
+<script src="orders.js"></script>
+</body>
+</html>
