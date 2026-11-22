@@ -1,0 +1,144 @@
+/* ==========================================================================
+   Кастомные стили лендинга (Bootstrap 5 overrides)
+   ========================================================================== */
+
+:root {
+    --brand: #ff9800;
+    --brand-dark: #333333;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+}
+
+/* ---------- Navbar ---------- */
+.bg-dark-brand {
+    background-color: var(--brand-dark) !important;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+}
+
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: var(--brand);
+}
+
+.navbar .nav-link.active {
+    color: var(--brand) !important;
+    font-weight: 600;
+}
+
+/* ---------- Кнопки ---------- */
+.btn-brand {
+    background-color: var(--brand);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.15s ease;
+}
+
+.btn-brand:hover,
+.btn-brand:focus {
+    background-color: #e68a00;
+    color: #fff;
+}
+
+.btn-brand:active {
+    transform: scale(0.98);
+}
+
+/* ---------- Hero ---------- */
+.hero-section {
+    background: linear-gradient(135deg, #fff8ef 0%, #ffe8cc 100%);
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+}
+
+.hero-img {
+    max-height: 420px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* ---------- Карточки преимуществ ---------- */
+.feature-card {
+    border-radius: 1rem !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12) !important;
+}
+
+.feature-icon {
+    font-size: 2.75rem;
+    line-height: 1;
+}
+
+/* ---------- CTA ---------- */
+.cta-section {
+    background: linear-gradient(135deg, #ff9800 0%, #e68a00 100%);
+}
+
+/* ---------- Контакты ---------- */
+.contact-label {
+    display: inline-block;
+    min-width: 110px;
+    font-weight: 600;
+    color: #222;
+}
+
+.contact-list a {
+    color: var(--brand);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-list a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Форма ---------- */
+.form-control:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.25);
+}
+
+/* ---------- Адаптивность ---------- */
+@media (max-width: 991.98px) {
+    .hero-section {
+        text-align: center;
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+    .hero-section .d-flex {
+        justify-content: center;
+    }
+    .hero-img {
+        max-height: 320px;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .display-4 {
+        font-size: 2.25rem;
+    }
+    .contact-label {
+        min-width: 100px;
+    }
+}

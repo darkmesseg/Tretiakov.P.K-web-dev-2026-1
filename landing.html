@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ОбедЭкспресс — доставка бизнес-ланчей в Москве</title>
+
+    <!-- Шрифт -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Кастомные стили -->
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark-brand sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-4" href="landing.html">ОбедЭкспресс</a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false"
+                aria-label="Переключить навигацию">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="landing.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="lunch.html">Собрать ланч</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="checkout.html">Оформить заказ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="orders.html">Заказы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacts">Контакты</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero-section py-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill">
+                    Доставка за 45 минут
+                </span>
+                <h1 class="display-4 fw-bold mb-4 lh-sm">
+                    Горячие бизнес-ланчи с доставкой по Москве
+                </h1>
+                <p class="lead text-muted mb-4">
+                    Сбалансированные обеды ресторанного качества прямо в ваш офис или дом.
+                    Готовим из свежих продуктов и привозим горячим точно к обеденному перерыву.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="lunch.html" class="btn btn-brand btn-lg px-4">Собрать ланч</a>
+                    <a href="#features" class="btn btn-outline-dark btn-lg px-4">Узнать больше</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="images/lunch.png" alt="Разнообразные бизнес-ланчи"
+                     class="img-fluid rounded-4 shadow-lg hero-img"
+                     onerror="this.src='https://via.placeholder.com/600x400?text=Lunch'">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== ПРЕИМУЩЕСТВА ===================== -->
+<section id="features" class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Почему выбирают нас</h2>
+            <p class="text-muted">Четыре причины доверить нам свой обед</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm feature-card">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">🚀</div>
+                        <h3 class="h5 card-title fw-semibold">Быстрая доставка</h3>
+                        <p class="card-text text-muted mb-0">
+                            Привозим еду горячей в течение 45 минут в любой район Москвы.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm feature-card">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">🥗</div>
+                        <h3 class="h5 card-title fw-semibold">Свежие продукты</h3>
+                        <p class="card-text text-muted mb-0">
+                            Используем только натуральные ингредиенты без консервантов и усилителей вкуса.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm feature-card">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">🍲</div>
+                        <h3 class="h5 card-title fw-semibold">Разнообразное меню</h3>
+                        <p class="card-text text-muted mb-0">
+                            Обновляем ассортимент блюд каждую неделю, чтобы обеды не приедались.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm feature-card">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">💳</div>
+                        <h3 class="h5 card-title fw-semibold">Удобная оплата</h3>
+                        <p class="card-text text-muted mb-0">
+                            Оплачивайте картой, наличными или по счёту для юридических лиц.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta-section py-5 text-white text-center">
+    <div class="container py-4">
+        <h2 class="fw-bold mb-3">Готовы попробовать?</h2>
+        <p class="lead mb-4 opacity-75">
+            Соберите свой идеальный ланч за пару минут — мы позаботимся об остальном.
+        </p>
+        <a href="lunch.html" class="btn btn-light btn-lg px-5 fw-semibold">
+            Собрать ланч
+        </a>
+    </div>
+</section>
+
+<!-- ===================== КОНТАКТЫ + ФОРМА ===================== -->
+<section id="contacts" class="py-5">
+    <div class="container">
+        <div class="row g-5">
+
+            <!-- Контакты -->
+            <div class="col-lg-5">
+                <h2 class="fw-bold mb-4">Свяжитесь с нами</h2>
+                <p class="text-muted mb-4">
+                    Оставьте сообщение — мы ответим в течение рабочего дня.
+                    Или позвоните нам напрямую.
+                </p>
+
+                <ul class="list-unstyled contact-list">
+                    <li class="mb-3">
+                        <span class="contact-label">Телефон:</span>
+                        <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                    </li>
+                    <li class="mb-3">
+                        <span class="contact-label">Email:</span>
+                        <a href="mailto:info@lunch-moscow.ru">info@lunch-moscow.ru</a>
+                    </li>
+                    <li class="mb-3">
+                        <span class="contact-label">Адрес:</span>
+                        г. Москва, ул. Тверская, д. 12, стр. 1
+                    </li>
+                    <li class="mb-3">
+                        <span class="contact-label">Режим работы:</span>
+                        ежедневно с 7:00 до 23:00
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Форма -->
+            <div class="col-lg-7">
+                <form id="contact-form" class="needs-validation" novalidate>
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <label for="cf-name" class="form-label fw-semibold">Имя</label>
+                            <input type="text" class="form-control form-control-lg"
+                                   id="cf-name" required>
+                            <div class="invalid-feedback">Пожалуйста, введите имя.</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="cf-email" class="form-label fw-semibold">Email</label>
+                            <input type="email" class="form-control form-control-lg"
+                                   id="cf-email" required>
+                            <div class="invalid-feedback">Пожалуйста, введите корректный email.</div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="cf-phone" class="form-label fw-semibold">
+                                Телефон <span class="text-muted fw-normal">(необязательно)</span>
+                            </label>
+                            <input type="tel" class="form-control form-control-lg" id="cf-phone">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="cf-message" class="form-label fw-semibold">Сообщение</label>
+                            <textarea class="form-control form-control-lg"
+                                      id="cf-message" rows="5" required></textarea>
+                            <div class="invalid-feedback">Пожалуйста, введите сообщение.</div>
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-brand btn-lg px-5">
+                                Отправить
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="form-success" class="alert alert-success mt-3 d-none" role="alert">
+                        Спасибо! Ваше сообщение отправлено.
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                © 2026 ОбедЭкспресс — доставка бизнес-ланчей в Москве
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <a href="#contacts" class="text-decoration-none text-warning">Контакты</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap 5 JS (для navbar-toggler) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Валидация формы (Bootstrap-style) -->
+<script>
+(function () {
+    'use strict';
+
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (form.checkValidity()) {
+            success.classList.remove('d-none');
+            form.reset();
+            form.classList.remove('was-validated');
+            setTimeout(() => success.classList.add('d-none'), 4000);
+        } else {
+            form.classList.add('was-validated');
+        }
+    }, false);
+})();
+</script>
+
+</body>
+</html>
